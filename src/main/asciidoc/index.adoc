@@ -1,0 +1,94 @@
+= Discovery API Documentation
+COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
+0.0.1, 28.11.2019
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:sectnums:
+
+== Introduction API
+This is the API documentation of the COFOMO-project. Let´s work together on open markets!
+
+== CRUD Operations
+Collection of endpoints to manage crud operations
+
+=== Get all Mobility Providers
+
+==== Sample Request
+include::{snippets}/get-all/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/get-all/http-response.adoc[]
+
+
+=== Add Mobility Provider
+
+==== Sample Request
+include::{snippets}/add-provider/http-request.adoc[]
+
+==== Fields of Request Body
+include::{snippets}/add-provider/request-fields.adoc[]
+
+==== Sample Response
+include::{snippets}/add-provider/http-response.adoc[]
+
+
+=== Get Mobility Provider by Id
+
+==== Sample Request
+include::{snippets}/get-by-id/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/get-by-id/http-response.adoc[]
+
+==== Fields of Response Body
+include::{snippets}/get-by-id/response-fields.adoc[]
+
+
+=== Update Mobility Provider
+
+==== Sample Request
+include::{snippets}/update/http-request.adoc[]
+
+==== Fields of Request Body
+include::{snippets}/update/request-fields.adoc[]
+
+==== Sample Response
+include::{snippets}/update/http-response.adoc[]
+
+
+=== Delete Mobility Provider
+
+==== Sample Request
+include::{snippets}/delete/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/delete/http-response.adoc[]
+
+
+== Lookup Operations
+Collection of endpoints to manage crud operations
+
+=== By travel request
+
+==== Sample Request
+include::{snippets}/lookup-travel/http-request.adoc[]
+
+==== Fields of Request Body
+include::{snippets}/lookup-travel/request-fields.adoc[]
+
+==== Sample Response
+include::{snippets}/lookup-travel/http-response.adoc[]
+
+
+=== By location
+
+==== Sample Request
+include::{snippets}/lookup-location/http-request.adoc[]
+
+==== Fields of Request Body
+include::{snippets}/lookup-location/request-fields.adoc[]
+
+==== Sample Response
+include::{snippets}/lookup-location/http-response.adoc[]
+
