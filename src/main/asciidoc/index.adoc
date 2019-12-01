@@ -72,23 +72,20 @@ Collection of endpoints to manage crud operations
 === By travel request
 
 ==== Sample Request
-include::{snippets}/lookup-travel/http-request.adoc[]
+include::{snippets}/lookup-search/http-request.adoc[]
 
 ==== Fields of Request Body
-include::{snippets}/lookup-travel/request-fields.adoc[]
+include::{snippets}/lookup-search/request-fields.adoc[]
 
 ==== Sample Response
-include::{snippets}/lookup-travel/http-response.adoc[]
+include::{snippets}/lookup-search/http-response.adoc[]
 
 
 === By location
 
 ==== Sample Request
-include::{snippets}/lookup-location/http-request.adoc[]
-
-==== Fields of Request Body
-include::{snippets}/lookup-location/request-fields.adoc[]
+include::{snippets}/lookup-area/http-request.adoc[]
 
 ==== Sample Response
-include::{snippets}/lookup-location/http-response.adoc[]
+include::{snippets}/lookup-area/http-response.adoc[]
 

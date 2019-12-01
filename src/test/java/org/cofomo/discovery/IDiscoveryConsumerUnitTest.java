@@ -83,7 +83,7 @@ public class IDiscoveryConsumerUnitTest {
 				.perform(post("/discovery/lookup/search").content(objectMapper.writeValueAsString(searchParam))
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andDo(print()).andExpect(status().isOk())
-				.andDo(document("lookup-travel", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
+				.andDo(document("lookup-search", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
 						requestFields(fieldWithPath("origin").description("Origin of travel"),
 								fieldWithPath("origin.latitude").description("Latitude"),
 								fieldWithPath("origin.longitude").description("Longitude"),
@@ -105,7 +105,7 @@ public class IDiscoveryConsumerUnitTest {
 
 		// action
 		this.mockMvc.perform(get("/discovery/lookup/area/72072").accept(MediaType.APPLICATION_JSON)).andDo(print())
-				.andExpect(status().isOk()).andDo(document("lookup-location"));
+				.andExpect(status().isOk()).andDo(document("lookup-area"));
 	}
 
 	// helper functions
