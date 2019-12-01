@@ -7,8 +7,6 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -48,4 +46,13 @@ public class MobilityProvider {
 	
 	@NotNull
 	LocalDateTime lastHeartBeat;
+	
+	public MobilityProvider(String name, String url, List<Integer> areas, List<String> offers) {
+		this.name = name;
+		this.url = url;
+		this.operationAreas = areas;
+		this.serviceOffers = offers;
+		this.lastHeartBeat = LocalDateTime.now();
+		this.alive = true;
+	}
 }

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @AutoConfigureMockMvc
 @TestPropertySource(
 		  locations = "classpath:application-integration-test.yml")
-public class ApiIntegrationTest {
+public class IDiscoveryProviderIntegrationTest {
 	
 	@Autowired
 	private MockMvc mockMvc;

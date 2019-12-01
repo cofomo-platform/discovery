@@ -77,9 +77,9 @@ public class DiscoveryController implements IDiscoveryConsumer, IDiscoveryProvid
 	}
 	
 	@Override
-	@PostMapping("/lookup/area")
+	@GetMapping("/lookup/area/{postcode}")
 	@ResponseStatus(HttpStatus.OK)
-	public List<MobilityProvider> getByOperationArea(@RequestBody int postcode) {
+	public List<MobilityProvider> getByOperationArea(@PathVariable int postcode) {
 		return mpFacade.getByOperationArea(postcode);
 	}
 	
