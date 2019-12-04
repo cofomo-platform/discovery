@@ -9,4 +9,4 @@ WORKDIR /usr/spring
 
 RUN sh -c 'touch discovery.jar'
 
-ENTRYPOINT ["java","-jar", -Dspring.profiles.active=prod", "discovery.jar"]
+ENTRYPOINT java -jar -Dspring.profiles.active=prod discovery.jar
