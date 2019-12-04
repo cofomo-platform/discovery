@@ -6,12 +6,12 @@ logging:
 
 spring:
   profiles:
-    active: "dev"
+    active: "boa"
     
 ---
 
 spring:
-  profiles: dev
+  profiles: boa
   datasource:
     url: jdbc:mysql://localhost:3306/discovery
     username: root
