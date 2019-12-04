@@ -7,4 +7,18 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      
+---
+
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://mysql:3306/discovery
+    username: root
+    password: cofomo.123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
 
