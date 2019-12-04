@@ -9,7 +9,7 @@ public interface IDiscoveryProvider {
 
 	public MobilityProvider get(String providerId);
 
-	public MobilityProvider add(MobilityProvider provider);
+	public MobilityProvider create(MobilityProvider provider);
 
 	public void update(MobilityProvider provider);
 

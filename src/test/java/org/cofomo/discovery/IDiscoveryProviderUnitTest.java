@@ -109,7 +109,7 @@ public class IDiscoveryProviderUnitTest {
 		MobilityProvider mp = createMobilityProvider1();
 
 		// define mock return value
-		when(facade.add(mp)).thenReturn(mp);
+		when(facade.create(mp)).thenReturn(mp);
 
 		// action
 		MvcResult result = this.mockMvc

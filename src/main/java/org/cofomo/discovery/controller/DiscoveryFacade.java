@@ -32,7 +32,7 @@ public class DiscoveryFacade implements IDiscoveryConsumer, IDiscoveryProvider {
 	}
 
 	@Override
-	public MobilityProvider add(MobilityProvider provider) {
+	public MobilityProvider create(MobilityProvider provider) {
 		provider.setAlive(true);
 		provider.setLastHeartBeat(LocalDateTime.now());
 		return mpRepository.save(provider);

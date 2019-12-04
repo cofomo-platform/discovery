@@ -8,6 +8,7 @@ import org.cofomo.discovery.domain.MobilityProvider;
 import org.cofomo.discovery.domain.MobilitySearchParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +20,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/discovery", produces="application/json")
-public class DiscoveryController implements IDiscoveryConsumer, IDiscoveryProvider{
-	
+@RequestMapping(path = "/discovery", produces = MediaType.APPLICATION_JSON_VALUE)
+public class DiscoveryController implements IDiscoveryConsumer, IDiscoveryProvider {
+
 	@Autowired
 	private DiscoveryFacade mpFacade;
-	
+
 	@Override
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
@@ -38,49 +39,49 @@ public class DiscoveryController implements IDiscoveryConsumer, IDiscoveryProvid
 	public MobilityProvider get(@PathVariable String providerId) {
 		return mpFacade.get(providerId);
 	}
-	
+
 	@Override
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public MobilityProvider add(@RequestBody MobilityProvider provider) {
-		return mpFacade.add(provider);
+	public MobilityProvider create(@RequestBody MobilityProvider provider) {
+		return mpFacade.create(provider);
 	}
-	
+
 	@Override
 	@PutMapping
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void update(@RequestBody MobilityProvider provider) {
 		mpFacade.update(provider);
 	}
-	
+
 	@Override
 	@DeleteMapping("/{providerId}")
 	@ResponseStatus(HttpStatus.OK)
 	public void delete(@PathVariable String providerId) {
 		mpFacade.delete(providerId);
 	}
-	
+
 	@Override
 	@GetMapping("/{providerId}/heartbeat")
 	@ResponseStatus(HttpStatus.OK)
 	public void heartbeat(@PathVariable String providerId) {
 		mpFacade.heartbeat(providerId);
 	}
-	
+
 	// IDiscoveryConsunemr
-	
+
 	@Override
 	@PostMapping("/lookup/search")
 	@ResponseStatus(HttpStatus.OK)
 	public List<MobilityProvider> getBySearchCriteria(@RequestBody MobilitySearchParam searchParam) {
 		return mpFacade.getBySearchCriteria(searchParam);
 	}
-	
+
 	@Override
 	@GetMapping("/lookup/area/{postcode}")
 	@ResponseStatus(HttpStatus.OK)
 	public List<MobilityProvider> getByOperationArea(@PathVariable int postcode) {
 		return mpFacade.getByOperationArea(postcode);
 	}
-	
+
 }
