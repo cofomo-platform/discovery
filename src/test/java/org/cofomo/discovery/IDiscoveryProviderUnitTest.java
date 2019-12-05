@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cofomo.discovery.controller.DiscoveryController;
+import org.cofomo.discovery.controller.DiscoveryConsumerController;
 import org.cofomo.discovery.controller.DiscoveryFacade;
 import org.cofomo.discovery.domain.MobilityProvider;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,7 +42,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith({ RestDocumentationExtension.class, SpringExtension.class })
-@WebMvcTest(DiscoveryController.class)
+@WebMvcTest(DiscoveryConsumerController.class)
 @AutoConfigureRestDocs(outputDir = "target/generated-snippets")
 public class IDiscoveryProviderUnitTest {
 

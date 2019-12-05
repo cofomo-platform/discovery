@@ -2,10 +2,9 @@ package org.cofomo.discovery.controller;
 
 import java.util.List;
 
-import org.cofomo.discovery.api.IDiscoveryConsumer;
 import org.cofomo.discovery.api.IDiscoveryProvider;
 import org.cofomo.discovery.domain.MobilityProvider;
-import org.cofomo.discovery.domain.MobilitySearchParam;
+import org.cofomo.discovery.repository.DiscoveryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,44 +18,65 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
-@RequestMapping(path = "/discovery", produces = MediaType.APPLICATION_JSON_VALUE)
-public class DiscoveryController implements IDiscoveryConsumer, IDiscoveryProvider {
+@Tag(name = "Discovery Provider API", description = "Implements IDiscoveryProvider")
+@RequestMapping(path = "/api")
+public class DiscoveryProviderController implements IDiscoveryProvider {
+
+	@Autowired
+	DiscoveryRepository mpRepository;
 
 	@Autowired
 	private DiscoveryFacade mpFacade;
 
 	@Override
-	@GetMapping
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public List<MobilityProvider> get() {
-		return mpFacade.get();
+	@Operation(summary = "Get all mobility provider")
+	public List<MobilityProvider> getAll() {
+		return mpFacade.getAll();
 	}
-
+	
 	@Override
-	@GetMapping("/{providerId}")
+	@GetMapping("/active")
 	@ResponseStatus(HttpStatus.OK)
-	public MobilityProvider get(@PathVariable String providerId) {
-		return mpFacade.get(providerId);
+	@Operation(summary = "Get all active mobility provider")
+	public List<MobilityProvider> getActive() {
+		return mpFacade.getActive();
 	}
-
+	
 	@Override
-	@PostMapping
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
+	@Operation(summary = "Create mobility provider")
 	public MobilityProvider create(@RequestBody MobilityProvider provider) {
 		return mpFacade.create(provider);
 	}
 
 	@Override
-	@PutMapping
+	@GetMapping(path = "/{providerId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.OK)
+	@Operation(summary = "Get all mobility provider by id")
+	public MobilityProvider get(@PathVariable String providerId) {
+		return mpFacade.get(providerId);
+	}
+
+
+	@Override
+	@PutMapping(path = "/{providerId}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public void update(@RequestBody MobilityProvider provider) {
-		mpFacade.update(provider);
+	@Operation(summary = "Update mobility provider")
+	public void update(@RequestBody MobilityProvider provider, @PathVariable String providerId) {
+		mpFacade.update(provider, providerId);
 	}
 
 	@Override
 	@DeleteMapping("/{providerId}")
 	@ResponseStatus(HttpStatus.OK)
+	@Operation(summary = "Delete mobility provider")
 	public void delete(@PathVariable String providerId) {
 		mpFacade.delete(providerId);
 	}
@@ -64,24 +84,8 @@ public class DiscoveryController implements IDiscoveryConsumer, IDiscoveryProvid
 	@Override
 	@GetMapping("/{providerId}/heartbeat")
 	@ResponseStatus(HttpStatus.OK)
+	@Operation(summary = "Send heartbeat")
 	public void heartbeat(@PathVariable String providerId) {
 		mpFacade.heartbeat(providerId);
 	}
-
-	// IDiscoveryConsunemr
-
-	@Override
-	@PostMapping("/lookup/search")
-	@ResponseStatus(HttpStatus.OK)
-	public List<MobilityProvider> getBySearchCriteria(@RequestBody MobilitySearchParam searchParam) {
-		return mpFacade.getBySearchCriteria(searchParam);
-	}
-
-	@Override
-	@GetMapping("/lookup/area/{postcode}")
-	@ResponseStatus(HttpStatus.OK)
-	public List<MobilityProvider> getByOperationArea(@PathVariable int postcode) {
-		return mpFacade.getByOperationArea(postcode);
-	}
-
 }

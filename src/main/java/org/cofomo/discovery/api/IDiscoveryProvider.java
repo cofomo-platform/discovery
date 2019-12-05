@@ -5,13 +5,16 @@ import java.util.List;
 import org.cofomo.discovery.domain.MobilityProvider;
 
 public interface IDiscoveryProvider {
-	public List<MobilityProvider> get();
+	
+	public List<MobilityProvider> getAll();
+	
+	public List<MobilityProvider> getActive();
 
 	public MobilityProvider get(String providerId);
 
 	public MobilityProvider create(MobilityProvider provider);
 
-	public void update(MobilityProvider provider);
+	public void update(MobilityProvider provider, String providerId);
 
 	public void delete(String providerId);
 	
