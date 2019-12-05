@@ -20,7 +20,7 @@ public class DiscoveryFacade {
 		return (List<MobilityProvider>) mpRepository.findAll();
 	}
 
-	public List<MobilityProvider> getActive() {
+	public List<MobilityProvider> getAllActive() {
 		return (List<MobilityProvider>) mpRepository.findAllByLastHeartBeatBetween(LocalDateTime.now().minusMinutes(1),
 				LocalDateTime.now());
 	}

@@ -27,9 +27,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class DiscoveryProviderController implements IDiscoveryProvider {
 
 	@Autowired
-	DiscoveryRepository mpRepository;
-
-	@Autowired
 	private DiscoveryFacade mpFacade;
 
 	@Override
@@ -45,7 +42,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Get all active mobility provider")
 	public List<MobilityProvider> getActive() {
-		return mpFacade.getActive();
+		return mpFacade.getAllActive();
 	}
 	
 	@Override
