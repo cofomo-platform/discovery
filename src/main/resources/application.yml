@@ -45,7 +45,7 @@ spring:
       ddl-auto: update
 
 swagger:
-  basepath: https://cofomo.io/discovery/v1/api
+  basepath: https://cofomo.io/discovery/api
   description: Test server for deployment
   
 
