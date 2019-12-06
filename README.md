@@ -6,8 +6,8 @@ Resources:
 
 | Name          | URL                                       |
 |---------------|-------------------------------------------|
-| Documentation | https://cofomo.io/discovery/documentation |
-| Swagger-UI    | https://cofomo.io/discovery/swagger       |
-| API           | https://cofomo.io/discovery/api/v1/*      |
+| Documentation | [https://cofomo.io/discovery/swagger ]https://cofomo.io/discovery/documentation |
+| Swagger-UI    | [https://cofomo.io/discovery/swagger ]https://cofomo.io/discovery/swagger       |
+| API           | [https://cofomo.io/discovery/api/v1/*]https://cofomo.io/discovery/api/v1/      |
 
 ## Identity Management
