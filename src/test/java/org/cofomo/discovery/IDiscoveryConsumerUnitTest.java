@@ -80,7 +80,7 @@ public class IDiscoveryConsumerUnitTest {
 
 		// action
 		this.mockMvc
-				.perform(post("/api/lookup/search").content(objectMapper.writeValueAsString(searchParam))
+				.perform(post("/v1/lookup/search").content(objectMapper.writeValueAsString(searchParam))
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andDo(print()).andExpect(status().isOk())
 				.andDo(document("lookup-search", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
@@ -104,7 +104,7 @@ public class IDiscoveryConsumerUnitTest {
 		when(facade.getByOperationArea(72072)).thenReturn(mpList);
 
 		// action
-		this.mockMvc.perform(get("/api/lookup/operationarea/72072")).andDo(print())
+		this.mockMvc.perform(get("/v1/lookup/operationarea/72072")).andDo(print())
 				.andExpect(status().isOk()).andDo(document("lookup-area"));
 	}
 

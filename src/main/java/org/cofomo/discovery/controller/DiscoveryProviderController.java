@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.cofomo.discovery.api.IDiscoveryProvider;
 import org.cofomo.discovery.domain.MobilityProvider;
-import org.cofomo.discovery.repository.DiscoveryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @Tag(name = "Discovery Provider API", description = "Implements IDiscoveryProvider")
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/v1")
 public class DiscoveryProviderController implements IDiscoveryProvider {
 
 	@Autowired

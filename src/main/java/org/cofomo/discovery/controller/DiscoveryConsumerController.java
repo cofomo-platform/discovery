@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @Tag(name = "Discovery Consumer API", description = "Implements IDiscoveryConsumer")
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/v1")
 public class DiscoveryConsumerController implements IDiscoveryConsumer {
 
 	@Autowired
