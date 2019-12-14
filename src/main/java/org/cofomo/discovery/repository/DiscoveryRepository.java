@@ -17,15 +17,15 @@ public interface DiscoveryRepository extends CrudRepository<MobilityProvider, St
 	// no heartbeat check
 	public List<MobilityProvider> findByOperationAreas(int postcode);
 
-	public List<MobilityProvider> findByLastHeartBeatBetweenAndServiceOffersIn(LocalDateTime publicationTimeStart,
-			LocalDateTime publicationTimeEnd, List<String> ms);
+	public List<MobilityProvider> findByLastHeartBeatBetweenAndServiceOffersIn(LocalDateTime timeStart,
+			LocalDateTime timeEnd, List<String> ms);
 
-	public List<MobilityProvider> findByLastHeartBeatBetweenAndOperationAreas(LocalDateTime publicationTimeStart,
-			LocalDateTime publicationTimeEnd, int postcode);
+	public List<MobilityProvider> findByLastHeartBeatBetweenAndOperationAreas(LocalDateTime timeStart,
+			LocalDateTime timeEnd, int postcode);
 
-	public Optional<MobilityProvider> findAllByLastHeartBeatBetweenAndId(LocalDateTime publicationTimeStart,
-			LocalDateTime publicationTimeEnd, String id);
+	public Optional<MobilityProvider> findAllByLastHeartBeatBetweenAndId(LocalDateTime timeStart,
+			LocalDateTime timeEnd, String id);
 
-	public List<MobilityProvider> findAllByLastHeartBeatBetween(LocalDateTime publicationTimeStart,
-			LocalDateTime publicationTimeEnd);
+	public List<MobilityProvider> findAllByLastHeartBeatBetween(LocalDateTime timeStart,
+			LocalDateTime timeEnd);
 }

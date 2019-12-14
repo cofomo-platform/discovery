@@ -106,6 +106,7 @@
 						<configuration>
 							<backend>pdf</backend>
 							<sourceHighlighter>coderay</sourceHighlighter>
+							<outputDirectory>src/main/resources/static/</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
