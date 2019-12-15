@@ -9,9 +9,4 @@ jobs:
 
     steps:
     - name: Trigger Jenkins Job
-      uses: appleboy/jenkins-action@0.0.2
-      with:
-        url: "https://jenkins.cofomo.io"
-        user: "jenkins"
-        token: ${{ secrets.jenkins }}
-        job: "COFOMO-DISCOVERY"
+      run: curl -I -u jenkins:110362b18b6f44fdfdd0841518b7e421f0 https://jenkins.cofomo.io/job/COFOMO-DISCOVERY/build?token=0sujsKUjkuU1ZGG55ARhLe8uyf
