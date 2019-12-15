@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Trigger Jenkins Job
-      uses: appleboy/jenkins-action@0.0.1
+      uses: appleboy/jenkins-action@0.0.2
       with:
         url: "https://jenkins.cofomo.io"
         user: "jenkins"
