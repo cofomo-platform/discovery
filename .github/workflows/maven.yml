@@ -15,8 +15,10 @@ jobs:
         java-version: 1.13
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Webhook
-      uses: joelwmale/webhook-action@master
-      env:
-         WEBHOOK_URL: https://jenkins.cofomo.io/job/COFOMO-DISCOVERY/build?token=0sujsKUjkuU1ZGG55ARhLe8uyf 
-         data: "Test"
+    - name: Trigger Jenkins Job
+      uses: appleboy/jenkins-action@0.0.1
+      with:
+        url: "https://jenkins.discovery.io"
+        user: "ilko"
+        token: 114fc078e0bfa01aa9a96cd72fa9f0c2a4
+        job: "COFOMO-DISCOVERY"
