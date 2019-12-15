@@ -7,23 +7,20 @@ pipeline {
     }
 
     environment {
-        //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
+        // Extract information from pom.xml
         IMAGE = readMavenPom().getArtifactId()
         VERSION = readMavenPom().getVersion()
-        DOCUMENTATIONURL = "https://cofomo.io/discovery/documentation"
+        DOCUMENTATIONURL = "https://discovery.cofomo.io"
     }
 
     stages {
         stage('Build Maven') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/ilkohoffmann/cofomo-discovery'
+                git 'https://github.com/cofomo-platform/discovery'
 
-                // Run Maven on a Unix agent.
+                // Run Maven
                 sh "mvn -Dspring.profiles.active=prod clean package"
-
-                // To run Maven on a Windows agent, use
-                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {
@@ -37,22 +34,19 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                /* This builds the actual image; synonymous to
-                 * docker build on the command line */
+                // This builds the container
                 sh "docker build . --build-arg version=${VERSION} -t discovery:${VERSION}"
             }
         }
         stage('Build Docker Container') {
             steps {
-                /* This builds the actual image; synonymous to
-                 * docker build on the command line */
+                // This runs the container
                 sh "docker container stop discovery"
                 sh "docker container rm discovery"
                 sh "docker run --name discovery -p 8888:8080 --network cofomo --restart always -d discovery:${VERSION}"
             }
             post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
+                 // Cleanup
                 success {
                     sh "docker system prune"
                 }
@@ -60,9 +54,11 @@ pipeline {
         }
     }
     post { 
+    	// Send success message to Slack
         success { 
             slackSend color: "good", message: "discovery:${VERSION} successfully built and deployed in ${currentBuild.durationString}.\nGo to ${DOCUMENTATIONURL} for more information"
         }
+        // Send failure message to Slack
         failure {
             slackSend color: "bad", message: "Failure in build and deployment of discovery:${VERSION}"
         }
