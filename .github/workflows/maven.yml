@@ -15,3 +15,8 @@ jobs:
         java-version: 1.13
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Webhook
+      uses: joelwmale/webhook-action@master
+      env:
+         WEBHOOK_URL: https://jenkins.cofomo.io/job/COFOMO-DISCOVERY/build?token=0sujsKUjkuU1ZGG55ARhLe8uyf 
+         data: "Test"
