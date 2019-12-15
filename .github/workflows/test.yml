@@ -1,0 +1,17 @@
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger Jenkins Job
+      uses: appleboy/jenkins-action@0.0.1
+      with:
+        url: "https://jenkins.cofomo.io"
+        user: "jenkins"
+        token: 11343512f0891dfcbd56cd2a9a3e25bdff
+        job: "COFOMO-DISCOVERY"
