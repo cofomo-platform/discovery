@@ -2,7 +2,8 @@ package org.cofomo.discovery.api;
 
 import java.util.List;
 
-import org.cofomo.discovery.domain.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProvider;
+
 
 public interface IDiscoveryProvider {
 	

@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.cofomo.discovery.domain.Location;
-import org.cofomo.discovery.domain.MobilityProvider;
+import org.cofomo.commons.domain.exploration.Location;
+import org.cofomo.commons.domain.exploration.MobilityProvider;
 import org.cofomo.discovery.utils.GeoLocation;
 import org.springframework.beans.factory.annotation.Autowired;
 

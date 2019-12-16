@@ -3,8 +3,8 @@ package org.cofomo.discovery.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.cofomo.discovery.domain.MobilityProvider;
-import org.cofomo.discovery.domain.MobilitySearchParam;
+import org.cofomo.commons.domain.exploration.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilitySearchParam;
 import org.cofomo.discovery.error.ProviderNotFoundException;
 import org.cofomo.discovery.repository.DiscoveryRepository;
 import org.springframework.beans.factory.annotation.Autowired;

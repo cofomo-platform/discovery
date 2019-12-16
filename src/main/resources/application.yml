@@ -28,7 +28,7 @@ spring:
       ddl-auto: update
       
 swagger:
-  basepath: https://localhost:8080
+  basepath: http://localhost:8080
   description: Test server on localhost
       
 ---

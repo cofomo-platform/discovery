@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.cofomo.discovery.domain.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProvider;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

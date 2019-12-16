@@ -20,9 +20,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cofomo.commons.domain.exploration.MobilityProvider;
 import org.cofomo.discovery.controller.DiscoveryFacade;
 import org.cofomo.discovery.controller.DiscoveryProviderController;
-import org.cofomo.discovery.domain.MobilityProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

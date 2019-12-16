@@ -2,8 +2,8 @@ package org.cofomo.discovery.controller;
 
 import java.util.List;
 
+import org.cofomo.commons.domain.exploration.MobilityProvider;
 import org.cofomo.discovery.api.IDiscoveryProvider;
-import org.cofomo.discovery.domain.MobilityProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
