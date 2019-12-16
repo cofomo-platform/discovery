@@ -20,7 +20,7 @@
 	</properties>
 	<repositories>
 		<repository>
-			<id>commons-mvn-repo</id>
+			<id>commons</id>
 			<url>https://raw.github.com/cofomo-platform/commons/mvn-repo/</url>
 			<snapshots>
 				<enabled>true</enabled>
@@ -30,11 +30,11 @@
 	</repositories>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.cofomo</groupId>
-			<artifactId>commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.cofomo</groupId> -->
+<!-- 			<artifactId>commons</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
