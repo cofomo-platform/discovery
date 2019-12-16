@@ -1,6 +1,6 @@
 = Discovery API Documentation
 COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
-0.0.1, 15.12.2019
+0.0.1, 16.12.2019
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
