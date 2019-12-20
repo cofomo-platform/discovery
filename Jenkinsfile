@@ -35,7 +35,7 @@ pipeline {
          stage('Copy Documentation') {
             steps {
                 // This builds the container
-                sh "cp -r ./target/generated/snippets/ ../DOCS"
+                sh "cp -r ./target/generated-snippets/ ../DOCS"
             }
         }
         stage('Build Docker Image') {
