@@ -48,15 +48,15 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	@Operation(summary = "Create mobility provider")
-	public MobilityProvider create(@RequestBody MobilityProvider provider) {
+	public MobilityProvider register(@RequestBody MobilityProvider provider) {
 		return mpFacade.create(provider);
 	}
 
 	@Override
 	@GetMapping(path = "/{providerId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	@Operation(summary = "Get all mobility provider by id")
-	public MobilityProvider get(@PathVariable String providerId) {
+	@Operation(summary = "Get mobility provider by id")
+	public MobilityProvider getById(@PathVariable String providerId) {
 		return mpFacade.get(providerId);
 	}
 
@@ -73,7 +73,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@DeleteMapping("/{providerId}")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Delete mobility provider")
-	public void delete(@PathVariable String providerId) {
+	public void remove(@PathVariable String providerId) {
 		mpFacade.delete(providerId);
 	}
 

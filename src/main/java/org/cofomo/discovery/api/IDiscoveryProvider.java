@@ -11,13 +11,13 @@ public interface IDiscoveryProvider {
 	
 	public List<MobilityProvider> getActive();
 
-	public MobilityProvider get(String providerId);
+	public MobilityProvider getById(String providerId);
 
-	public MobilityProvider create(MobilityProvider provider);
+	public MobilityProvider register(MobilityProvider provider);
 
 	public void update(MobilityProvider provider, String providerId);
 
-	public void delete(String providerId);
+	public void remove(String providerId);
 	
 	public void heartbeat(String providerId);
 }

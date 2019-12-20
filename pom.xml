@@ -18,6 +18,7 @@
 	<properties>
 		<java.version>13</java.version>
 	</properties>
+	
 	<repositories>
 		<repository>
 			<id>commons-mvn-repo</id>
@@ -53,6 +54,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -140,7 +142,6 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.2</version>
 				<executions>
 					<execution>
 						<id>copy-resources</id>
