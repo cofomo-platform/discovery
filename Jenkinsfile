@@ -34,8 +34,8 @@ pipeline {
         }
          stage('Copy Documentation') {
             steps {
-                // This builds the container
-                sh "cp -r ./target/generated-snippets/ ../DOCS"
+                // Copy all documentation snippets to parent folder
+                sh "cp -r ./target/generated-snippets/. ../DOCS/exploration"
             }
         }
         stage('Build Docker Image') {
