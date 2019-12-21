@@ -35,7 +35,7 @@ pipeline {
          stage('Copy Documentation') {
             steps {
                 // Copy all documentation snippets to parent folder
-                sh "cp -r ./target/generated-snippets/. ../DOCS/"
+                sh "cp -r ./target/generated-snippets/. ../DOCS/generated-snippets"
                 sh "cp -r ./src/main/asciidoc/index.adoc ../DOCS/sourcefiles/exploration.adoc"
             }
         }
