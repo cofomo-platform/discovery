@@ -443,73 +443,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
-<li><a href="#_references">1. References</a></li>
-<li><a href="#_discovery_provider_api">2. Discovery Provider API</a>
+<li><a href="#_discovery_provider_api">1. Discovery Provider API</a>
 <ul class="sectlevel3">
-<li><a href="#_get_all_mobility_providers">2.1. Get all Mobility Providers</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request">2.1.1. Sample Request</a></li>
-<li><a href="#_sample_response">2.1.2. Sample Response</a></li>
+<li><a href="#_get_all_providers">1.1. Get all providers</a></li>
+<li><a href="#_get_all_active_providers">1.2. Get all active providers</a></li>
+<li><a href="#_add_provider">1.3. Add provider</a></li>
+<li><a href="#_get_provider_by_id">1.4. Get provider by id</a></li>
+<li><a href="#_update_provider">1.5. Update provider</a></li>
+<li><a href="#_remove_provider">1.6. Remove provider</a></li>
 </ul>
 </li>
-<li><a href="#_get_all_active_mobility_providers">2.2. Get all Active Mobility Providers</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request_2">2.2.1. Sample Request</a></li>
-<li><a href="#_sample_response_2">2.2.2. Sample Response</a></li>
-</ul>
-</li>
-<li><a href="#_add_mobility_provider">2.3. Add Mobility Provider</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request_3">2.3.1. Sample Request</a></li>
-<li><a href="#_fields_of_request_body">2.3.2. Fields of Request Body</a></li>
-<li><a href="#_sample_response_3">2.3.3. Sample Response</a></li>
-</ul>
-</li>
-<li><a href="#_get_mobility_provider_by_id">2.4. Get Mobility Provider by Id</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request_4">2.4.1. Sample Request</a></li>
-<li><a href="#_sample_response_4">2.4.2. Sample Response</a></li>
-<li><a href="#_fields_of_response_body">2.4.3. Fields of Response Body</a></li>
-</ul>
-</li>
-<li><a href="#_update_mobility_provider">2.5. Update Mobility Provider</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request_5">2.5.1. Sample Request</a></li>
-<li><a href="#_fields_of_request_body_2">2.5.2. Fields of Request Body</a></li>
-<li><a href="#_sample_response_5">2.5.3. Sample Response</a></li>
-</ul>
-</li>
-<li><a href="#_delete_mobility_provider">2.6. Delete Mobility Provider</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request_6">2.6.1. Sample Request</a></li>
-<li><a href="#_sample_response_6">2.6.2. Sample Response</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_discovery_consumer_api">3. Discovery Consumer API</a>
+<li><a href="#_discovery_consumer_api">2. Discovery Consumer API</a>
 <ul class="sectlevel3">
-<li><a href="#_by_travel_request">3.1. By travel request</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request_7">3.1.1. Sample Request</a></li>
-<li><a href="#_fields_of_request_body_3">3.1.2. Fields of Request Body</a></li>
-<li><a href="#_sample_response_7">3.1.3. Sample Response</a></li>
-</ul>
-</li>
-<li><a href="#_by_location">3.2. By location</a>
-<ul class="sectlevel4">
-<li><a href="#_sample_request_8">3.2.1. Sample Request</a></li>
-<li><a href="#_sample_response_8">3.2.2. Sample Response</a></li>
-</ul>
-</li>
+<li><a href="#_lookup_by_travel_request">2.1. Lookup by travel request</a></li>
+<li><a href="#_lookup_by_location">2.2. Lookup by location</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect2">
-<h3 id="_references">1. References</h3>
+<div id="preamble">
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -526,7 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-github"></i></span> GitHub</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/cofomo-platform/discovery" class="bare">https://github.com/cofomo-platform/discovery</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/cofomo-platform/discovery" target="_blank" rel="noopener">https://github.com/cofomo-platform/discovery</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Repository of the discovery project</p></td>
 </tr>
 <tr>
@@ -540,22 +495,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">Interactive test suite of the API</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-rocket"></i></span> API</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://discovery.cofomo.io/api" class="bare">https://discovery.cofomo.io/api</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Discovery API</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_discovery_provider_api">2. Discovery Provider API</h3>
+<h3 id="_discovery_provider_api">1. Discovery Provider API</h3>
 <div class="paragraph">
 <p>Collection of endpoints to manage provider operations</p>
 </div>
 <div class="sect3">
-<h4 id="_get_all_mobility_providers">2.1. Get all Mobility Providers</h4>
+<h4 id="_get_all_providers">1.1. Get all providers</h4>
 <div class="sect4">
-<h5 id="_sample_request">2.1.1. Sample Request</h5>
+<h5 id="_sample_request">Sample Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1 HTTP/1.1
@@ -564,50 +520,7 @@ Host: api.cofomo.org</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sample_response">2.1.2. Sample Response</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 478
-
-[ {
-  "id" : null,
-  "name" : "Carsharing Inc.",
-  "url" : "https://test.carsharing.org",
-  "operationAreas" : [ 72072 ],
-  "serviceOffers" : [ "carsharing" ],
-  "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:01.90863"
-}, {
-  "id" : null,
-  "name" : "BikeSharing Inc.",
-  "url" : "https://test.carsharing.org",
-  "operationAreas" : [ 72073 ],
-  "serviceOffers" : [ "bikesharing", "escootersharing" ],
-  "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:01.908661"
-} ]</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_get_all_active_mobility_providers">2.2. Get all Active Mobility Providers</h4>
-<div class="paragraph">
-<p>Depending if endpoints of mobility provider still active</p>
-</div>
-<div class="sect4">
-<h5 id="_sample_request_2">2.2.1. Sample Request</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/active HTTP/1.1
-Host: api.cofomo.org</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_sample_response_2">2.2.2. Sample Response</h5>
+<h5 id="_sample_response">Sample Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -621,7 +534,7 @@ Content-Length: 479
   "operationAreas" : [ 72072 ],
   "serviceOffers" : [ "carsharing" ],
   "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:01.940658"
+  "lastHeartBeat" : "2019-12-21T13:53:32.449426"
 }, {
   "id" : null,
   "name" : "BikeSharing Inc.",
@@ -629,23 +542,66 @@ Content-Length: 479
   "operationAreas" : [ 72073 ],
   "serviceOffers" : [ "bikesharing", "escootersharing" ],
   "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:01.940693"
+  "lastHeartBeat" : "2019-12-21T13:53:32.449464"
 } ]</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_add_mobility_provider">2.3. Add Mobility Provider</h4>
+<h4 id="_get_all_active_providers">1.2. Get all active providers</h4>
+<div class="paragraph">
+<p>Depending if endpoints of mobility provider still active</p>
+</div>
 <div class="sect4">
-<h5 id="_sample_request_3">2.3.1. Sample Request</h5>
+<h5 id="_sample_request_2">Sample Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/active HTTP/1.1
+Host: api.cofomo.org</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sample_response_2">Sample Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 479
+
+[ {
+  "id" : null,
+  "name" : "Carsharing Inc.",
+  "url" : "https://test.carsharing.org",
+  "operationAreas" : [ 72072 ],
+  "serviceOffers" : [ "carsharing" ],
+  "alive" : true,
+  "lastHeartBeat" : "2019-12-21T13:53:32.468338"
+}, {
+  "id" : null,
+  "name" : "BikeSharing Inc.",
+  "url" : "https://test.carsharing.org",
+  "operationAreas" : [ 72073 ],
+  "serviceOffers" : [ "bikesharing", "escootersharing" ],
+  "alive" : true,
+  "lastHeartBeat" : "2019-12-21T13:53:32.468361"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_provider">1.3. Add provider</h4>
+<div class="sect4">
+<h5 id="_sample_request_3">Sample Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1 HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Host: api.cofomo.org
-Content-Length: 226
+Content-Length: 225
 
 {
   "id" : null,
@@ -654,13 +610,13 @@ Content-Length: 226
   "operationAreas" : [ 72072 ],
   "serviceOffers" : [ "carsharing" ],
   "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:01.803784"
+  "lastHeartBeat" : "2019-12-21T13:53:32.38044"
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fields_of_request_body">2.3.2. Fields of Request Body</h5>
+<h5 id="_fields_of_request_body">Fields of Request Body</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -714,12 +670,12 @@ Content-Length: 226
 </table>
 </div>
 <div class="sect4">
-<h5 id="_sample_response_3">2.3.3. Sample Response</h5>
+<h5 id="_sample_response_3">Sample Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 226
+Content-Length: 225
 
 {
   "id" : null,
@@ -728,16 +684,16 @@ Content-Length: 226
   "operationAreas" : [ 72072 ],
   "serviceOffers" : [ "carsharing" ],
   "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:01.803784"
+  "lastHeartBeat" : "2019-12-21T13:53:32.38044"
 }</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_mobility_provider_by_id">2.4. Get Mobility Provider by Id</h4>
+<h4 id="_get_provider_by_id">1.4. Get provider by id</h4>
 <div class="sect4">
-<h5 id="_sample_request_4">2.4.1. Sample Request</h5>
+<h5 id="_sample_request_4">Sample Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/1 HTTP/1.1
@@ -747,7 +703,7 @@ Host: api.cofomo.org</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sample_response_4">2.4.2. Sample Response</h5>
+<h5 id="_sample_response_4">Sample Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -761,13 +717,13 @@ Content-Length: 226
   "operationAreas" : [ 72072 ],
   "serviceOffers" : [ "carsharing" ],
   "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:01.976786"
+  "lastHeartBeat" : "2019-12-21T13:53:32.488551"
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fields_of_response_body">2.4.3. Fields of Response Body</h5>
+<h5 id="_fields_of_response_body">Fields of Response Body</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -822,9 +778,9 @@ Content-Length: 226
 </div>
 </div>
 <div class="sect3">
-<h4 id="_update_mobility_provider">2.5. Update Mobility Provider</h4>
+<h4 id="_update_provider">1.5. Update provider</h4>
 <div class="sect4">
-<h5 id="_sample_request_5">2.5.1. Sample Request</h5>
+<h5 id="_sample_request_5">Sample Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/1 HTTP/1.1
@@ -840,13 +796,13 @@ Content-Length: 226
   "operationAreas" : [ 72072 ],
   "serviceOffers" : [ "carsharing" ],
   "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:02.066536"
+  "lastHeartBeat" : "2019-12-21T13:53:32.527213"
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fields_of_request_body_2">2.5.2. Fields of Request Body</h5>
+<h5 id="_fields_of_request_body_2">Fields of Request Body</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -900,7 +856,7 @@ Content-Length: 226
 </table>
 </div>
 <div class="sect4">
-<h5 id="_sample_response_5">2.5.3. Sample Response</h5>
+<h5 id="_sample_response_5">Sample Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
@@ -909,9 +865,9 @@ Content-Length: 226
 </div>
 </div>
 <div class="sect3">
-<h4 id="_delete_mobility_provider">2.6. Delete Mobility Provider</h4>
+<h4 id="_remove_provider">1.6. Remove provider</h4>
 <div class="sect4">
-<h5 id="_sample_request_6">2.6.1. Sample Request</h5>
+<h5 id="_sample_request_6">Sample Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/1 HTTP/1.1
@@ -920,7 +876,7 @@ Host: api.cofomo.org</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sample_response_6">2.6.2. Sample Response</h5>
+<h5 id="_sample_response_6">Sample Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK</code></pre>
@@ -930,14 +886,14 @@ Host: api.cofomo.org</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_discovery_consumer_api">3. Discovery Consumer API</h3>
+<h3 id="_discovery_consumer_api">2. Discovery Consumer API</h3>
 <div class="paragraph">
 <p>Collection of endpoints to manage crud operations</p>
 </div>
 <div class="sect3">
-<h4 id="_by_travel_request">3.1. By travel request</h4>
+<h4 id="_lookup_by_travel_request">2.1. Lookup by travel request</h4>
 <div class="sect4">
-<h5 id="_sample_request_7">3.1.1. Sample Request</h5>
+<h5 id="_sample_request_7">Sample Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/lookup/search HTTP/1.1
@@ -961,7 +917,7 @@ Content-Length: 198
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fields_of_request_body_3">3.1.2. Fields of Request Body</h5>
+<h5 id="_fields_of_request_body_3">Fields of Request Body</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1015,7 +971,7 @@ Content-Length: 198
 </table>
 </div>
 <div class="sect4">
-<h5 id="_sample_response_7">3.1.3. Sample Response</h5>
+<h5 id="_sample_response_7">Sample Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1029,16 +985,16 @@ Content-Length: 230
   "operationAreas" : [ 72072 ],
   "serviceOffers" : [ "carsharing" ],
   "alive" : true,
-  "lastHeartBeat" : "2019-12-21T12:59:00.953192"
+  "lastHeartBeat" : "2019-12-21T13:53:31.565471"
 } ]</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_by_location">3.2. By location</h4>
+<h4 id="_lookup_by_location">2.2. Lookup by location</h4>
 <div class="sect4">
-<h5 id="_sample_request_8">3.2.1. Sample Request</h5>
+<h5 id="_sample_request_8">Sample Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/lookup/operationarea/72072 HTTP/1.1
@@ -1047,14 +1003,14 @@ Host: api.cofomo.org</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sample_response_8">3.2.2. Sample Response</h5>
+<h5 id="_sample_response_8">Sample Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 188
+Content-Length: 187
 
-[{"id":null,"name":"Carsharing Inc.","url":"https://test.carsharing.org","operationAreas":[72072],"serviceOffers":["carsharing"],"alive":true,"lastHeartBeat":"2019-12-21T12:59:01.158992"}]</code></pre>
+[{"id":null,"name":"Carsharing Inc.","url":"https://test.carsharing.org","operationAreas":[72072],"serviceOffers":["carsharing"],"alive":true,"lastHeartBeat":"2019-12-21T13:53:31.78316"}]</code></pre>
 </div>
 </div>
 </div>
@@ -1064,7 +1020,7 @@ Content-Length: 188
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1<br>
-Last updated 2019-12-21 12:58:41 +0100
+Last updated 2019-12-21 13:53:12 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">
