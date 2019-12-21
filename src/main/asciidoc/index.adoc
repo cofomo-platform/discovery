@@ -4,9 +4,7 @@ COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
-:toclevels: 3
 :sectnums:
-:sectnumlevels: 3
 
 // tag::globalDoc[]
 
@@ -33,95 +31,95 @@ COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
 |Discovery API
 |===
 
-=== Discovery Provider API
+== Discovery Provider API
 Collection of endpoints to manage provider operations
 
-==== Get all providers
+=== Get all providers
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/get-all/http-request.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/get-all/http-response.adoc[]
 
 
-==== Get all active providers
+=== Get all active providers
 
 Depending if endpoints of mobility provider still active
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/get-all-active/http-request.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/get-all-active/http-response.adoc[]
 
 
-==== Add provider
+=== Add provider
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/add-provider/http-request.adoc[]
 
-===== Fields of Request Body
+==== Fields of Request Body
 include::{snippets}/add-provider/request-fields.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/add-provider/http-response.adoc[]
 
 
-==== Get provider by id
+=== Get provider by id
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/get-by-id/http-request.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/get-by-id/http-response.adoc[]
 
-===== Fields of Response Body
+==== Fields of Response Body
 include::{snippets}/get-by-id/response-fields.adoc[]
 
 
-==== Update provider
+=== Update provider
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/update-provider/http-request.adoc[]
 
-===== Fields of Request Body
+==== Fields of Request Body
 include::{snippets}/update-provider/request-fields.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/update-provider/http-response.adoc[]
 
 
-==== Remove provider
+=== Remove provider
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/delete/http-request.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/delete/http-response.adoc[]
 
 
-=== Discovery Consumer API
+== Discovery Consumer API
 Collection of endpoints to manage crud operations
 
-==== Lookup by travel request
+=== Lookup by travel request
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/lookup-search/http-request.adoc[]
 
-===== Fields of Request Body
+==== Fields of Request Body
 include::{snippets}/lookup-search/request-fields.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/lookup-search/http-response.adoc[]
 
 
-==== Lookup by location
+=== Lookup by location
 
-===== Sample Request
+==== Sample Request
 include::{snippets}/lookup-area/http-request.adoc[]
 
-===== Sample Response
+==== Sample Response
 include::{snippets}/lookup-area/http-response.adoc[]
 
 // end::globalDoc[]
