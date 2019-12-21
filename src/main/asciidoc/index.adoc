@@ -10,8 +10,6 @@ COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
 
 // tag::globalDoc[]
 
-=== References
-
 [cols="1,2,2", options="header"] 
 |===
 |Name
@@ -38,7 +36,7 @@ COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
 === Discovery Provider API
 Collection of endpoints to manage provider operations
 
-==== Get all Mobility Providers
+==== Get all providers
 
 ===== Sample Request
 include::{snippets}/get-all/http-request.adoc[]
@@ -47,7 +45,7 @@ include::{snippets}/get-all/http-request.adoc[]
 include::{snippets}/get-all/http-response.adoc[]
 
 
-==== Get all Active Mobility Providers
+==== Get all active providers
 
 Depending if endpoints of mobility provider still active
 
@@ -58,7 +56,7 @@ include::{snippets}/get-all-active/http-request.adoc[]
 include::{snippets}/get-all-active/http-response.adoc[]
 
 
-==== Add Mobility Provider
+==== Add provider
 
 ===== Sample Request
 include::{snippets}/add-provider/http-request.adoc[]
@@ -70,7 +68,7 @@ include::{snippets}/add-provider/request-fields.adoc[]
 include::{snippets}/add-provider/http-response.adoc[]
 
 
-==== Get Mobility Provider by Id
+==== Get provider by id
 
 ===== Sample Request
 include::{snippets}/get-by-id/http-request.adoc[]
@@ -82,7 +80,7 @@ include::{snippets}/get-by-id/http-response.adoc[]
 include::{snippets}/get-by-id/response-fields.adoc[]
 
 
-==== Update Mobility Provider
+==== Update provider
 
 ===== Sample Request
 include::{snippets}/update-provider/http-request.adoc[]
@@ -94,7 +92,7 @@ include::{snippets}/update-provider/request-fields.adoc[]
 include::{snippets}/update-provider/http-response.adoc[]
 
 
-==== Delete Mobility Provider
+==== Remove provider
 
 ===== Sample Request
 include::{snippets}/delete/http-request.adoc[]
@@ -106,7 +104,7 @@ include::{snippets}/delete/http-response.adoc[]
 === Discovery Consumer API
 Collection of endpoints to manage crud operations
 
-==== By travel request
+==== Lookup by travel request
 
 ===== Sample Request
 include::{snippets}/lookup-search/http-request.adoc[]
@@ -118,7 +116,7 @@ include::{snippets}/lookup-search/request-fields.adoc[]
 include::{snippets}/lookup-search/http-response.adoc[]
 
 
-==== By location
+==== Lookup by location
 
 ===== Sample Request
 include::{snippets}/lookup-area/http-request.adoc[]
