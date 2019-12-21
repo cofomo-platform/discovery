@@ -6,6 +6,8 @@ COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
 :toc: left
 :sectnums:
 
+// tag::globalDoc[]
+
 == Introduction API
 This is the API documentation of the COFOMO-project. Let´s work together on open markets!
 [cols="1,2,2", options="header"] 
@@ -121,4 +123,6 @@ include::{snippets}/lookup-area/http-request.adoc[]
 
 ==== Sample Response
 include::{snippets}/lookup-area/http-response.adoc[]
+
+// end::globalDoc[]
 
