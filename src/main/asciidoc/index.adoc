@@ -81,13 +81,13 @@ include::{snippets}/get-by-id/response-fields.adoc[]
 === Update Mobility Provider
 
 ==== Sample Request
-include::{snippets}/update/http-request.adoc[]
+include::{snippets}/update-provider/http-request.adoc[]
 
 ==== Fields of Request Body
-include::{snippets}/update/request-fields.adoc[]
+include::{snippets}/update-provider/request-fields.adoc[]
 
 ==== Sample Response
-include::{snippets}/update/http-response.adoc[]
+include::{snippets}/update-provider/http-response.adoc[]
 
 
 === Delete Mobility Provider
