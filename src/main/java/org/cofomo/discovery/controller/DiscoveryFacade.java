@@ -50,7 +50,7 @@ public class DiscoveryFacade {
 	public void heartbeat(String providerId) {
 		MobilityProvider mp = mpRepository.findById(providerId)
 				.orElseThrow(() -> new ProviderNotFoundException(providerId));
-//		mp.setLastHeartBeat(LocalDateTime.now());
+		mp.setLastHeartBeat(LocalDateTime.now());
 		mpRepository.save(mp);
 	}
 
