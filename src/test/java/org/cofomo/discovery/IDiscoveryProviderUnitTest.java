@@ -193,6 +193,6 @@ public class IDiscoveryProviderUnitTest {
 		serviceOffers.add("bikesharing");
 		serviceOffers.add("escootersharing");
 		areas.add(72073);
-		return new MobilityProvider("BikeSharing Inc.", "https://test.carsharing.org", areas, serviceOffers);
+		return new MobilityProvider("BikeSharing Inc.", "https://test.bikesharing.org", areas, serviceOffers);
 	}
 }
