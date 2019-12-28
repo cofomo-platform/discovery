@@ -4,28 +4,28 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.cofomo.commons.domain.exploration.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProviderEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DiscoveryRepository extends CrudRepository<MobilityProvider, String>, MobilityProviderGeoLocation {
+public interface DiscoveryRepository extends CrudRepository<MobilityProviderEntity, String>, MobilityProviderGeoLocation {
 
 	// no heartbeat check
-	public List<MobilityProvider> findByServiceOffersIn(List<String> ms);
+	public List<MobilityProviderEntity> findByServiceOffersIn(List<String> ms);
 
 	// no heartbeat check
-	public List<MobilityProvider> findByOperationAreas(int postcode);
+	public List<MobilityProviderEntity> findByOperationAreas(int postcode);
 
-	public List<MobilityProvider> findByLastHeartBeatBetweenAndServiceOffersIn(LocalDateTime timeStart,
+	public List<MobilityProviderEntity> findByLastHeartBeatBetweenAndServiceOffersIn(LocalDateTime timeStart,
 			LocalDateTime timeEnd, List<String> ms);
 
-	public List<MobilityProvider> findByLastHeartBeatBetweenAndOperationAreas(LocalDateTime timeStart,
+	public List<MobilityProviderEntity> findByLastHeartBeatBetweenAndOperationAreas(LocalDateTime timeStart,
 			LocalDateTime timeEnd, int postcode);
 
-	public Optional<MobilityProvider> findAllByLastHeartBeatBetweenAndId(LocalDateTime timeStart,
+	public Optional<MobilityProviderEntity> findAllByLastHeartBeatBetweenAndId(LocalDateTime timeStart,
 			LocalDateTime timeEnd, String id);
 
-	public List<MobilityProvider> findAllByLastHeartBeatBetween(LocalDateTime timeStart,
+	public List<MobilityProviderEntity> findAllByLastHeartBeatBetween(LocalDateTime timeStart,
 			LocalDateTime timeEnd);
 }

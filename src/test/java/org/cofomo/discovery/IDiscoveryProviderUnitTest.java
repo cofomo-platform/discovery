@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cofomo.commons.domain.exploration.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProviderEntity;
 import org.cofomo.discovery.controller.DiscoveryFacade;
 import org.cofomo.discovery.controller.DiscoveryProviderController;
 import org.junit.jupiter.api.BeforeEach;
@@ -69,7 +69,7 @@ public class IDiscoveryProviderUnitTest {
 	public void shouldReturnAllMobilityProvider() throws Exception {
 
 		// create list of mobility providers
-		List<MobilityProvider> mpList = new ArrayList<MobilityProvider>();
+		List<MobilityProviderEntity> mpList = new ArrayList<MobilityProviderEntity>();
 		mpList.add(createMobilityProvider1());
 		mpList.add(createMobilityProvider2());
 
@@ -85,7 +85,7 @@ public class IDiscoveryProviderUnitTest {
 	public void shouldReturnAllActiveMobilityProvider() throws Exception {
 
 		// create list of mobility providers
-		List<MobilityProvider> mpList = new ArrayList<MobilityProvider>();
+		List<MobilityProviderEntity> mpList = new ArrayList<MobilityProviderEntity>();
 		mpList.add(createMobilityProvider1());
 		mpList.add(createMobilityProvider2());
 
@@ -101,7 +101,7 @@ public class IDiscoveryProviderUnitTest {
 	public void shouldReturnOneMobilityProvider() throws Exception {
 
 		// create mobility provider
-		MobilityProvider mp = createMobilityProvider1();
+		MobilityProviderEntity mp = createMobilityProvider1();
 
 		// define mock return value
 		when(facade.get("1")).thenReturn(mp);
@@ -122,7 +122,7 @@ public class IDiscoveryProviderUnitTest {
 	public void shouldAddMobilityProvider() throws Exception {
 
 		// create mobility provider
-		MobilityProvider mp = createMobilityProvider1();
+		MobilityProviderEntity mp = createMobilityProvider1();
 
 		// define mock return value
 		when(facade.create(mp)).thenReturn(mp);
@@ -152,7 +152,7 @@ public class IDiscoveryProviderUnitTest {
 	public void shouldUpdateOneMobilityProvider() throws Exception {
 
 		// create mobility provider
-		MobilityProvider mp = createMobilityProvider1();
+		MobilityProviderEntity mp = createMobilityProvider1();
 
 		// action
 		this.mockMvc
@@ -179,20 +179,20 @@ public class IDiscoveryProviderUnitTest {
 	}
 
 	// helper functions
-	private static MobilityProvider createMobilityProvider1() {
+	private static MobilityProviderEntity createMobilityProvider1() {
 		List<String> serviceOffers = new ArrayList<String>();
 		List<Integer> areas = new ArrayList<Integer>();
 		serviceOffers.add("carsharing");
 		areas.add(72072);
-		return new MobilityProvider("Carsharing Inc.", "https://test.carsharing.org", areas, serviceOffers);
+		return new MobilityProviderEntity("Carsharing Inc.", "https://test.carsharing.org", areas, serviceOffers);
 	}
 
-	private static MobilityProvider createMobilityProvider2() {
+	private static MobilityProviderEntity createMobilityProvider2() {
 		List<String> serviceOffers = new ArrayList<String>();
 		List<Integer> areas = new ArrayList<Integer>();
 		serviceOffers.add("bikesharing");
 		serviceOffers.add("escootersharing");
 		areas.add(72073);
-		return new MobilityProvider("BikeSharing Inc.", "https://test.bikesharing.org", areas, serviceOffers);
+		return new MobilityProviderEntity("BikeSharing Inc.", "https://test.bikesharing.org", areas, serviceOffers);
 	}
 }

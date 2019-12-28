@@ -2,7 +2,7 @@ package org.cofomo.discovery.controller;
 
 import java.util.List;
 
-import org.cofomo.commons.domain.exploration.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProviderEntity;
 import org.cofomo.commons.domain.exploration.MobilitySearchParam;
 import org.cofomo.discovery.api.IDiscoveryConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class DiscoveryConsumerController implements IDiscoveryConsumer {
 	@PostMapping(path = "/lookup/search", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Search by search params")
-	public List<MobilityProvider> getBySearchCriteria(@RequestBody MobilitySearchParam searchParam) {
+	public List<MobilityProviderEntity> getBySearchCriteria(@RequestBody MobilitySearchParam searchParam) {
 		return mpFacade.getBySearchCriteria(searchParam);
 	}
 
@@ -39,7 +39,7 @@ public class DiscoveryConsumerController implements IDiscoveryConsumer {
 	@GetMapping(path = "/lookup/operationarea/{postcode}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Search by operation area")
-	public List<MobilityProvider> getByOperationArea(@PathVariable int postcode) {
+	public List<MobilityProviderEntity> getByOperationArea(@PathVariable int postcode) {
 		return mpFacade.getByOperationArea(postcode);
 	}
 

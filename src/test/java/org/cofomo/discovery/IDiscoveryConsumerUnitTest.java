@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cofomo.commons.domain.exploration.Location;
-import org.cofomo.commons.domain.exploration.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProviderEntity;
 import org.cofomo.commons.domain.exploration.MobilitySearchParam;
 import org.cofomo.discovery.controller.DiscoveryConsumerController;
 import org.cofomo.discovery.controller.DiscoveryFacade;
@@ -66,7 +66,7 @@ public class IDiscoveryConsumerUnitTest {
 	public void shouldReturnMobilityProviderByTravelRequest() throws Exception {
 
 		// create list of mobility providers
-		List<MobilityProvider> mpList = new ArrayList<MobilityProvider>();
+		List<MobilityProviderEntity> mpList = new ArrayList<MobilityProviderEntity>();
 		mpList.add(createMobilityProvider1());
 
 		// create search parameters
@@ -97,7 +97,7 @@ public class IDiscoveryConsumerUnitTest {
 	public void shouldReturnMobilityProviderByLocationRequest() throws Exception {
 
 		// create list of mobility providers
-		List<MobilityProvider> mpList = new ArrayList<MobilityProvider>();
+		List<MobilityProviderEntity> mpList = new ArrayList<MobilityProviderEntity>();
 		mpList.add(createMobilityProvider1());
 
 		// define mock return value
@@ -109,11 +109,11 @@ public class IDiscoveryConsumerUnitTest {
 	}
 
 	// helper functions
-	private static MobilityProvider createMobilityProvider1() {
+	private static MobilityProviderEntity createMobilityProvider1() {
 		List<String> serviceOffers = new ArrayList<String>();
 		List<Integer> areas = new ArrayList<Integer>();
 		serviceOffers.add("carsharing");
 		areas.add(72072);
-		return new MobilityProvider("Carsharing Inc.", "https://test.carsharing.org", areas, serviceOffers);
+		return new MobilityProviderEntity("Carsharing Inc.", "https://test.carsharing.org", areas, serviceOffers);
 	}
 }

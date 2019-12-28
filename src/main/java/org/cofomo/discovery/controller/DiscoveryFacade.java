@@ -3,7 +3,7 @@ package org.cofomo.discovery.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.cofomo.commons.domain.exploration.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProviderEntity;
 import org.cofomo.commons.domain.exploration.MobilitySearchParam;
 import org.cofomo.discovery.error.ProviderNotFoundException;
 import org.cofomo.discovery.repository.DiscoveryRepository;
@@ -16,28 +16,28 @@ public class DiscoveryFacade {
 	@Autowired
 	DiscoveryRepository mpRepository;
 
-	public List<MobilityProvider> getAll() {
-		return (List<MobilityProvider>) mpRepository.findAll();
+	public List<MobilityProviderEntity> getAll() {
+		return (List<MobilityProviderEntity>) mpRepository.findAll();
 	}
 
-	public List<MobilityProvider> getAllActive() {
-		return (List<MobilityProvider>) mpRepository.findAllByLastHeartBeatBetween(LocalDateTime.now().minusMinutes(1),
+	public List<MobilityProviderEntity> getAllActive() {
+		return (List<MobilityProviderEntity>) mpRepository.findAllByLastHeartBeatBetween(LocalDateTime.now().minusMinutes(1),
 				LocalDateTime.now());
 	}
 
-	public MobilityProvider get(String providerId) {
+	public MobilityProviderEntity get(String providerId) {
 		return mpRepository
 				.findAllByLastHeartBeatBetweenAndId(LocalDateTime.now(), LocalDateTime.now().plusMinutes(1), providerId)
 				.orElseThrow(() -> new ProviderNotFoundException(providerId));
 	}
 
-	public MobilityProvider create(MobilityProvider provider) {
+	public MobilityProviderEntity create(MobilityProviderEntity provider) {
 		provider.setAlive(true);
 		provider.setLastHeartBeat(LocalDateTime.now());
 		return mpRepository.save(provider);
 	}
 
-	public void update(MobilityProvider provider, String providerId) {
+	public void update(MobilityProviderEntity provider, String providerId) {
 		provider.setAlive(true);
 		provider.setLastHeartBeat(LocalDateTime.now());
 		mpRepository.save(provider);
@@ -48,7 +48,7 @@ public class DiscoveryFacade {
 	}
 
 	public void heartbeat(String providerId) {
-		MobilityProvider mp = mpRepository.findById(providerId)
+		MobilityProviderEntity mp = mpRepository.findById(providerId)
 				.orElseThrow(() -> new ProviderNotFoundException(providerId));
 		mp.setLastHeartBeat(LocalDateTime.now());
 		mpRepository.save(mp);
@@ -56,17 +56,17 @@ public class DiscoveryFacade {
 
 	// IDiscoveryConsumer
 
-	public List<MobilityProvider> getByOperationArea(int postcode) {
+	public List<MobilityProviderEntity> getByOperationArea(int postcode) {
 		return mpRepository.findByOperationAreas(postcode);
 	}
 
-	public List<MobilityProvider> getBySearchCriteria(MobilitySearchParam searchParam) {
+	public List<MobilityProviderEntity> getBySearchCriteria(MobilitySearchParam searchParam) {
 		List<String> ms = searchParam.mobilityServices;
-		List<MobilityProvider> mp;
+		List<MobilityProviderEntity> mp;
 		if (ms != null) {
 			mp = mpRepository.findByServiceOffersIn(ms);
 		} else {
-			mp = (List<MobilityProvider>) mpRepository.findAll();
+			mp = (List<MobilityProviderEntity>) mpRepository.findAll();
 		}
 		return mp;
 	}

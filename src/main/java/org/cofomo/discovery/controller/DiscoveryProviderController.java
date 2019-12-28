@@ -2,7 +2,7 @@ package org.cofomo.discovery.controller;
 
 import java.util.List;
 
-import org.cofomo.commons.domain.exploration.MobilityProvider;
+import org.cofomo.commons.domain.exploration.MobilityProviderEntity;
 import org.cofomo.discovery.api.IDiscoveryProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +32,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Get all mobility provider")
-	public List<MobilityProvider> getAll() {
+	public List<MobilityProviderEntity> getAll() {
 		return mpFacade.getAll();
 	}
 	
@@ -40,7 +40,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@GetMapping("/active")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Get all active mobility provider")
-	public List<MobilityProvider> getActive() {
+	public List<MobilityProviderEntity> getActive() {
 		return mpFacade.getAllActive();
 	}
 	
@@ -48,7 +48,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	@Operation(summary = "Create mobility provider")
-	public MobilityProvider register(@RequestBody MobilityProvider provider) {
+	public MobilityProviderEntity register(@RequestBody MobilityProviderEntity provider) {
 		return mpFacade.create(provider);
 	}
 
@@ -56,7 +56,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@GetMapping(path = "/{providerId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Get mobility provider by id")
-	public MobilityProvider getById(@PathVariable String providerId) {
+	public MobilityProviderEntity getById(@PathVariable String providerId) {
 		return mpFacade.get(providerId);
 	}
 
@@ -65,7 +65,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@PutMapping(path = "/{providerId}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	@Operation(summary = "Update mobility provider")
-	public void update(@RequestBody MobilityProvider provider, @PathVariable String providerId) {
+	public void update(@RequestBody MobilityProviderEntity provider, @PathVariable String providerId) {
 		mpFacade.update(provider, providerId);
 	}
 
