@@ -7,6 +7,7 @@ import static org.springframework.restdocs.operation.preprocess.Preprocessors.pr
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.relaxedRequestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -84,13 +85,9 @@ public class IDiscoveryConsumerUnitTest {
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andDo(print()).andExpect(status().isOk())
 				.andDo(document("lookup-search", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
-						requestFields(fieldWithPath("origin").description("Origin of travel"),
-								fieldWithPath("origin.latitude").description("Latitude"),
-								fieldWithPath("origin.longitude").description("Longitude"),
-								fieldWithPath("destination").description("Destination of travel"),
-								fieldWithPath("destination.latitude").description("Latitude"),
-								fieldWithPath("destination.longitude").description("Longitude"),
-								fieldWithPath("mobilityServices").description("Requested mobility services"))));
+						relaxedRequestFields(fieldWithPath("origin").description("Origin of travel").type("Location"),
+								fieldWithPath("destination").description("Destination of travel").type("Location"),
+								fieldWithPath("mobilityServices").description("Requested mobility services").type("MobilityType "))));
 	}
 
 	@Test
