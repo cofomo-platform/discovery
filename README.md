@@ -1,7 +1,15 @@
 # COFOMO-Platform
-COFOMO is build around the division of domain-specific architecture modules. In the following architecture diagram the four main modules are displayed which are Exploration-Management, Identity-Management, Transaction-Managaement and Data-Access-Management. Each of those modules is represented by open source projects. On of those is the Discovery service as part of the Exploration-Management.
+COFOMO is build around the division of domain-specific architecture and consists of the modules: 
+
+- Exploration-Management
+- Identity-Management
+- Transaction-Managaement
+- Data-Access-Management
+
+For further information go to: [https://cofomo.io](https://cofomo.io)
 
 ## Discovery Service
+
 Resources:
 
 | Name          | URL                                       | Description                     |
