@@ -59,7 +59,7 @@ public class IDiscoveryProviderUnitTest {
 	public void setUp(WebApplicationContext webApplicationContext, RestDocumentationContextProvider restDocumentation) {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
 				.apply(documentationConfiguration(restDocumentation).uris().withScheme("https")
-						.withHost("api.cofomo.org").withPort(443))
+						.withHost("discovery.cofomo.io/api").withPort(443))
 				.alwaysDo(
 						document("{method-name}", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
 				.build();

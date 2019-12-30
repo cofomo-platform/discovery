@@ -57,7 +57,7 @@ public class IDiscoveryConsumerUnitTest {
 	public void setUp(WebApplicationContext webApplicationContext, RestDocumentationContextProvider restDocumentation) {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
 				.apply(documentationConfiguration(restDocumentation).uris().withScheme("https")
-						.withHost("api.cofomo.org").withPort(443))
+						.withHost("discovery.cofomo.io/api").withPort(443))
 				.alwaysDo(
 						document("{method-name}", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
 				.build();
@@ -87,7 +87,7 @@ public class IDiscoveryConsumerUnitTest {
 				.andDo(document("lookup-search", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
 						relaxedRequestFields(fieldWithPath("origin").description("Origin of travel").type("Location"),
 								fieldWithPath("destination").description("Destination of travel").type("Location"),
-								fieldWithPath("mobilityServices").description("Requested mobility services").type("MobilityType "))));
+								fieldWithPath("mobilityServices").description("Requested mobility services").type("MobilityType"))));
 	}
 
 	@Test

@@ -47,7 +47,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@Override
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	@Operation(summary = "Create mobility provider")
+	@Operation(summary = "Register mobility provider")
 	public MobilityProviderEntity register(@RequestBody MobilityProviderEntity provider) {
 		return mpFacade.create(provider);
 	}
@@ -72,7 +72,7 @@ public class DiscoveryProviderController implements IDiscoveryProvider {
 	@Override
 	@DeleteMapping("/{providerId}")
 	@ResponseStatus(HttpStatus.OK)
-	@Operation(summary = "Delete mobility provider")
+	@Operation(summary = "Remove mobility provider")
 	public void remove(@PathVariable String providerId) {
 		mpFacade.delete(providerId);
 	}
