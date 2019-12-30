@@ -34,6 +34,9 @@ COFOMO-Project, Ilko Hoffmann<ilkohoffmann@posteo.net>
 == Discovery Provider API
 Collection of endpoints to manage provider operations
 
+=== Provider Model
+include::{snippets}/get-by-id/response-fields.adoc[]
+
 === Get all providers
 
 ==== Sample Request
@@ -100,7 +103,7 @@ include::{snippets}/delete/http-response.adoc[]
 
 
 == Discovery Consumer API
-Collection of endpoints to manage crud operations
+Collection of endpoints to manage CRUD operations
 
 === Lookup by travel request
 
