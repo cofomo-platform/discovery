@@ -50,7 +50,7 @@ pipeline {
                 // This runs the container
                 sh "docker container stop discovery"
                 sh "docker container rm discovery"
-                sh "docker run --name discovery -p 8888:8080 --network cofomo --restart always -d discovery:${VERSION}"
+                sh "docker run --name discovery -p 127.0.0.1:8888:8080 --network cofomo --restart always -d discovery:${VERSION}"
             }
             post {
                  // Cleanup
